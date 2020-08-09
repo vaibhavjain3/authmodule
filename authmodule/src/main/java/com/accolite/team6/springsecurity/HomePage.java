@@ -8,6 +8,10 @@ public class HomePage {
 	public String home() {
 		return ("<h1>Welcome to AuthModule Application<h1>");
 	}
+	@GetMapping("/restricted")
+	public String restricted() {
+		return ("<h1>Welcome After Google Sign-In<h1>");
+	}
 	@GetMapping("/user")
 	public String user() {
 		return ("<h1>Welcome User<h1>");
