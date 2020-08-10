@@ -1,25 +1,26 @@
 package com.accolite.team6.springsecurity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@RestController
+
+@Controller
 public class HomePage {
-	//Will be replacing strings with HTML pages
-	@GetMapping("/")
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/")
 	public String home() {
-		return ("<h1>Welcome to AuthModule Application<h1>");
+		return "home_page";
 	}
-	@GetMapping("/restricted")
+	@RequestMapping(method = RequestMethod.GET, value = "/restricted")
 	public String restricted() {
-		return ("<h1>Welcome Google User<h1>");
+		return "google_user";
 	}
-	@GetMapping("/user")
+	@RequestMapping(method = RequestMethod.GET, value = "/user")
 	public String user() {
-		return ("<h1>Welcome User<h1>");
+		return "user";
 	}
-	@GetMapping("/admin")
+	@RequestMapping(method = RequestMethod.GET, value = "/admin")
 	public String admin() {
-		return ("<h1>Welcome Admin<h1>");
+		return "admin";
 	}
 }
