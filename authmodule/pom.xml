@@ -15,7 +15,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>authmodule Maven Webapp</name>
+  <name>authmodule</name>
   <url>http://www.example.com</url>
 
   <properties>
