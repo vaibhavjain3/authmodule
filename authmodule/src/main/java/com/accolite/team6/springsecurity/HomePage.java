@@ -9,11 +9,11 @@ public class HomePage {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/")
 	public String home() {
-		return "home_page";
+		return "index";
 	}
-	@RequestMapping(method = RequestMethod.GET, value = "/restricted")
+	@RequestMapping(method = RequestMethod.GET, value = "/help")
 	public String restricted() {
-		return "google_user";
+		return "help";
 	}
 	@RequestMapping(method = RequestMethod.GET, value = "/user")
 	public String user() {
@@ -23,4 +23,13 @@ public class HomePage {
 	public String admin() {
 		return "admin";
 	}
+	@RequestMapping(method = RequestMethod.GET, value = "/login")
+	public String login() {
+		return "login";
+	}
+	@RequestMapping(method = RequestMethod.GET, value = "/logout")
+	public String logout() {
+		return "logout";
+	}
+	
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Confirm Log Out?</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+    <style>
+            body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #eee;
+            }
+            .form-signin {
+            max-width: 500px;
+            padding: 15px;
+            margin: 0 auto;
+            }
+            .form-signin .form-signin-heading,
+            .form-signin .checkbox {
+            margin-bottom: 10px;
+            }
+            .form-signin .checkbox {
+            font-weight: 400;
+            }
+            .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+            }
+            .form-signin .form-control:focus {
+            z-index: 2;
+            }
+            .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            }
+            .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            }
+            .flex-container {
+            display: flex;
+            flex-direction: column;
+              align-items: center;
+              width: auto;
+            }
+     </style>
+  </head>
+  <body>
+     <div class="container">
+      <form class="form-signin" method="post" th:action="@{/logout}">
+        <h2 class="form-signin-heading">Are you sure you want to log out?</h2>
+		<input name="_csrf" type="hidden" value="796c8338-f634-47a4-b1a8-338493c05a71">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Logout">Log Out</button>
+      </form>
+    </div>
+  
+</body></html>
