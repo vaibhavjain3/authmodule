@@ -26,20 +26,23 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 		//In-Memory Authentication
-		 auth.inMemoryAuthentication() .withUser("User") .password("pass")
-		 .roles("USER") .and() .withUser("Admin") .password("pass")
-		 .roles("ADMIN");				
-		//Database Authentication using Hibernate
+		 auth.inMemoryAuthentication() 
+		 	 .withUser("User")
+		 	 .password("pass")
+		 	 .roles("USER") 
+		 	 .and() 
+		 	 .withUser("Admin") 
+		 	 .password("pass")
+		 	 .roles("ADMIN");				
+		
+		 //Database Authentication using Hibernate
 		auth.userDetailsService(UserService);
 	}
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
 		//Change the following Encoder with your Own Password Encoder
 		return NoOpPasswordEncoder.getInstance();
-	}
-	
-	
-	
+	}	
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
@@ -52,9 +55,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 			.hasAnyRole("ADMIN","USER")
 			.antMatchers("/help")
 			.permitAll()
-			.antMatchers("/oauth2/authorization/google").permitAll()
 			.antMatchers("/**")
 			.hasAnyRole("ADMIN","USER")
+			.antMatchers("/login?error")
+			.permitAll()
 			.and()
 			.formLogin()
 			.loginPage("/login")
@@ -63,7 +67,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 			.and()
 			.logout()
 			.deleteCookies("remove")
-			.invalidateHttpSession(false)
+			.invalidateHttpSession(true)
 			.logoutUrl("/logout")
 			.logoutSuccessUrl("/login?logout")
 			.permitAll()

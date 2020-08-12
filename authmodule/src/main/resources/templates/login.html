@@ -101,9 +101,10 @@
     <div  class="flex-container">
             <div >
               <h2 class="form-signin-heading">Login with OAuth 2.0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+              
+              <!--The following div is an OAuth 2.0 button, you can create as many custom buttons you want-->
               <div style="height:100;width:475;" class="abcRioButton abcRioButtonBlue">
                 <div class="abcRioButtonContentWrapper">
-                
                   <div class="abcRioButtonIcon" style="padding:15px">
                     <div style="width:18px;height:18px;" class="abcRioButtonSvgImageWithFallback abcRioButtonIconImage abcRioButtonIconImage18">
                       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 48 48" class="abcRioButtonSvg">
@@ -118,10 +119,14 @@
                          </div>
                         </div>
                         <span style="font-size:16px;line-height:48px;" class="abcRioButtonContents">
-                            <span id="not_signed_inhvn89u63z6nq"><a th:href="@{/oauth2/authorization/google}" th:if="${#httpServletRequest?.remoteUser == undefined }">Sign in with Google</a></span>
+                        <span id="not_signed_inhvn89u63z6nq">
+                 <!--For each button you need to add the following th:ref for each OAuth 2.0, where th:ref sends a post request to your authentication provider--> 
+                        <a style="color:white;" th:href="@{/oauth2/authorization/google}" th:if="${#httpServletRequest?.remoteUser == undefined }">Sign in with Google</a>
+                        </span>
                        </span>
                    </div>
                 </div>
+                
             </div>
         </div>
 

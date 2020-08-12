@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-	<head>
+ <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -54,12 +54,12 @@
      </style>
   </head>
   <body>
-     <div class="container">
-      <form class="form-signin" method="post" th:action="@{/logout}">
-        <h2 class="form-signin-heading">Are you sure you want to log out?</h2>
-		<input name="_csrf" type="hidden" value="796c8338-f634-47a4-b1a8-338493c05a71">
-        <button class="btn btn-lg btn-primary btn-block" type="submit" value="Logout">Log Out</button>
-      </form>
-    </div>
-  
-</body></html>
+   <div class="container">
+    <form class="form-signin" method="post" th:action="@{/logout}">
+     <h2 class="form-signin-heading">Are you sure you want to log out?</h2>
+     <input name="_csrf" type="hidden" value="796c8338-f634-47a4-b1a8-338493c05a71">
+     <button class="btn btn-lg btn-primary btn-block" type="submit" value="Logout">Log Out</button>
+    </form>
+   </div>
+  </body>
+</html>
