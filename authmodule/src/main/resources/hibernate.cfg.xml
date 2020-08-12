@@ -1,22 +1,28 @@
 <?xml version = "1.0" encoding = "utf-8"?>
 <!DOCTYPE hibernate-configuration SYSTEM 
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!--IMPORTANT:- You must configure the following properties as per your Database Specifications-->
 <hibernate-configuration>
-   <session-factory>
-      <property name = "hibernate.dialect">
-         org.hibernate.dialect.MySQLDialect
-      </property>
-      <property name = "hibernate.connection.driver_class">
-         com.mysql.cj.jdbc.Driver
-      </property>
-      <property name = "hibernate.connection.url">
-         jdbc:mysql://localhost:3306/authmodule
-      </property>
-      <property name = "hibernate.connection.username">
-         root
-      </property>
-      <property name = "hibernate.connection.password">
-         amalik
-      </property>
-   </session-factory>
+ <session-factory>
+  <property name = "hibernate.dialect">
+   <!-- Your Database Dialect -->
+   org.hibernate.dialect.MySQLDialect
+  </property>
+  <property name = "hibernate.connection.driver_class">
+   <!-- You Database Driver -->
+   com.mysql.cj.jdbc.Driver
+  </property>
+  <property name = "hibernate.connection.url">
+   <!-- Your Database Connection URL -->
+   jdbc:mysql://localhost:3306/authmodule
+  </property>
+  <property name = "hibernate.connection.username">
+   <!-- Your Database Username-->
+   root
+  </property>
+  <property name = "hibernate.connection.password">
+   <!-- Your Database Password -->
+   amalik
+  </property> 
+ </session-factory>
 </hibernate-configuration>

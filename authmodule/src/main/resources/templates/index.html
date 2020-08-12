@@ -1,22 +1,26 @@
-<html lang="en"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Welcome</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
-  </head>
-  <body>
-     <div class="container">
-      <form class="form-signin" method="get">
-        <h2 class="form-signin-heading">Welcome</h2>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="user.html">User Content</button>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="admin.html">Admin Content</button>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="logout.html">Sign out</button>
-      </form>
-     
-    
-      
-</div>
-</body></html>
+<!--This is the page which appears after successful login-->
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta name="description" content="">
+ <meta name="author" content="">
+ <title>Welcome</title>
+ <link rel="stylesheet" th:href="@{/bootstrap.min.css}" >
+ <link rel="stylesheet" th:href="@{/common.css}" >
+</head>
+<body>
+ <div class="container">
+  <form class="form-signin" method="get">
+   <h2 class="form-signin-heading">Welcome</h2>
+   <br>
+   <button class="btn btn-lg btn-primary btn-block" type="submit" th:formaction= "@{/user}">User</button>
+   <button class="btn btn-lg btn-primary btn-block" type="submit" th:formaction="@{/admin}">Administrator</button>
+   <button class="btn btn-lg btn-primary btn-block" style="background-color:#9BF088;border-color:#9BF088;" type="submit" th:formaction="@{/help}">Documentation and Help</button>
+   <br>
+   <br>
+   <button class="btn btn-lg btn-primary btn-block" style="background-color: #FD5D5D;border-color: #FD5D5D;" type="submit" th:formaction="@{/logout}">Sign out</button>
+  </form>   
+ </div>
+</body>
+</html>
