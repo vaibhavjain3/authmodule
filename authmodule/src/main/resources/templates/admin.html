@@ -33,23 +33,24 @@
     <br>
     <table>
      <tr>
- 	 <th>Users</th>
+      <th>Users</th>
      </tr>
      <tr th:each="i : ${user}" >
-	  <td><p th:text="${ i }"></p></td>
+      <td><p th:text="${ i }"></p></td>
      </tr>
     </table>
     <br>
     <br>
     <table>
      <tr>
-	  <th>Administrators</th>
-	 </tr>
-	 <tr th:each="i : ${admin}" >
-	  <td><p th:text="${ i }"></p></td>
-	 </tr>
+      <th>Administrators</th>
+     </tr>
+     <tr th:each="i : ${admin}" >
+      <td><p th:text="${ i }"></p></td>
+     </tr>
     </table>
-    <br><br>
+    <br>
+    <br>
     <button class="btn btn-lg btn-primary btn-block" style="background-color: #FD5D5D;border-color: #FD5D5D;" type="submit" th:formaction="@{/logout}" >Sign out</button>
    </form>   
   </div>  

@@ -48,7 +48,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 	
-	    //Configuration of the requests handled by the application.
+		//Configuration of the requests handled by the application.
 		//It has been customized for 2-Role Authorization: Administrator (ADMIN) and a normal User (USER)
 		http.authorizeRequests()
 		//'admin' pages can only be accessed by ADMIN
