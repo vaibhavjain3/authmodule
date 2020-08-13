@@ -1,0 +1,21 @@
+<!--Customize this page to create your own USER page-->
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta name="description" content="">
+ <meta name="author" content="">
+ <title>User Content</title>
+ <link rel="stylesheet" th:href="@{/bootstrap.min.css}" >
+ <link rel="stylesheet" th:href="@{/common.css}" >
+</head>
+<body>
+ <div class="container">
+  <form class="form-signin" method="get">
+   <h2 class="form-signin-heading">Welcome User</h2>
+   <br>
+   <button class="btn btn-lg btn-primary btn-block" style="background-color: #FD5D5D;border-color: #FD5D5D;" type="submit" th:formaction="@{/logout}">Sign out</button>
+  </form>     
+ </div>
+</body>
+</html>

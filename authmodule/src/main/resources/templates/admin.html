@@ -1,0 +1,58 @@
+<!--Customize this page to create your own ADMIN page-->
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta name="description" content="">
+ <meta name="author" content="">
+ <title>Administrator Content</title>
+ <link rel="stylesheet" th:href="@{/bootstrap.min.css}" >
+ <link rel="stylesheet" th:href="@{/common.css}" >
+ <style>
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  }
+  td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  }
+  tr:nth-child(even) {
+  background-color: #dddddd;
+  }
+ </style>
+</head>
+ <body>
+  <div class="container">
+   <form class="form-signin" method="get">
+    <h2 class="form-signin-heading">Welcome Administrator</h2>
+    <br>
+    <h3>List of Users and Administrators</h3>
+    <br>
+    <table>
+     <tr>
+      <th>Users</th>
+     </tr>
+     <tr th:each="i : ${user}" >
+      <td><p th:text="${ i }"></p></td>
+     </tr>
+    </table>
+    <br>
+    <br>
+    <table>
+     <tr>
+      <th>Administrators</th>
+     </tr>
+     <tr th:each="i : ${admin}" >
+      <td><p th:text="${ i }"></p></td>
+     </tr>
+    </table>
+    <br>
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" style="background-color: #FD5D5D;border-color: #FD5D5D;" type="submit" th:formaction="@{/logout}" >Sign out</button>
+   </form>   
+  </div>  
+</body>
+</html>
