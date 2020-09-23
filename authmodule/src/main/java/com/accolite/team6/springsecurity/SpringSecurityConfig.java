@@ -52,13 +52,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		//It has been customized for 2-Role Authorization: Administrator (ADMIN) and a normal User (USER)
 		http.authorizeRequests()
 		//'admin' pages can only be accessed by ADMIN
-		.antMatchers("/admin**") 
+		.antMatchers("/admin/**") 
 		.hasRole("ADMIN")
 		//'user' pages can only be accessed by both USER and ADMIN
-		.antMatchers("/user**")
+		.antMatchers("/user/**")
 		.hasAnyRole("ADMIN","USER")
 		//Help and documentation, style-sheets and login-errors are accessible to all even without authentication
-		.antMatchers("/help","/*.css","/login?error")
+		.antMatchers("/help/**","/*.css","/login?error")
 		.permitAll()
 		//Any other resource is only accessible after authentication
 		.antMatchers("/**")

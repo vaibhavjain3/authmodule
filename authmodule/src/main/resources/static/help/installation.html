@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- BEGIN: Head -->
+    <head>
+        <meta charset="utf-8">
+        <link href="dist/images/logo.svg" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="AuthModule is a super flexible, powerful, clean & modern pluggable authentication module.">
+        <title>Getting Started - AuthModule - AU JULY 2020</title>
+        <!-- BEGIN: CSS Assets-->
+        <link rel="stylesheet" href="dist/css/app.css" />
+        <!-- END: CSS Assets-->
+    </head>
+    <!-- END: Head -->
+    <body>
+ <div class="container grid grid-cols-12 -my-3 min-h-screen relative z-10">
+            <div class="col-span-3 bg-gray-800 py-10">
+                <a href="" class="intro-x flex items-center pl-5 mb-8">
+                    <img class="w-6" src="dist/images/logo.svg">
+                    <span class="hidden xl:block text-2xl ml-3"> Auth<span class="font-medium">Module</span> Docs </span>
+                </a>
+                <a href="index.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out ">About</a> 
+                <a href="installation.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out font-medium bg-gray-900">Getting Started</a> 
+                <a href="file-structure.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">File Structure</a> 
+                 <a href="attributions.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Attributions</a>
+                <a href="Authentication.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Types of Authentication</a>
+                <a href="style-customization.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Resource customization</a>
+                <a href="support.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Support</a>
+                <a href="changelog.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Changelog</a> 
+            </div>
+            <div class="col-span-9 border-l border-gray-800 bg-gray-900 py-10 px-10">
+                <h1 class="intro-y text-2xl font-medium pb-8 mb-10 border-b border-gray-800">
+                    Installation
+                </h1>
+                <h2 class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800">
+                    Prerequisites
+                </h2>
+                <div class="intro-y leading-relaxed">
+                    <p class="mb-3">To use the AuthModule on your local system, you need the following:</p>
+                    <ul class="list-decimal ml-6">
+                        <li class="mt-4"><a href="https://maven.apache.org/download.cgi" target="_blank"><b>Apache Maven</b></a> : It is a Java tool, so you must have <span class="text-yellow-500 font-medium"><a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank"><b>Java</b></a></span>  installed in order to proceed</li>
+                        <li class="mt-4">Apache Tomcat Server (<b>Version <a href="https://tomcat.apache.org/download-80.cgi" target="_blank">8.5.x</a></b> and higher supported)</li>
+                        <li class="mt-4">IDE : All popular development environments for the Java platform support Apache Maven
+                            <ul style="list-style-type:circle; margin-left: 20px;">
+                                <li><a href="https://netbeans.org/features/index.html" target="_blank">Apache NetBeans IDE</a></li>
+                                <li><a href="https://www.eclipse.org/m2e/m2e-downloads.html" target="_blank">Eclipse IDE - M2Eclipse</a></li>
+                                <li><a href="https://www.jetbrains.com/idea/download/#section=windows" target="_blank">JetBrains IntelliJ IDEA</a></li>
+                            </ul>
+                        </li>
+                        <li class="mt-4">Browsers Supported : Mozilla, Firefox, Google Chrome and Edge</li>
+                        <li class="mt-4">Database : You will need a database in your system, in the module we have used <span class="text-yellow-500 font-medium"><a href="https://www.mysql.com/downloads/" target="_blank">MySql</a></span> </li>
+                    </ul>
+                </div>
+                <br>
+                <h2 class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800">
+                    Run the Application
+                </h2>
+                <div class="intro-y leading-relaxed">
+                    <p class="mb-3">The following steps will need to be taken to directly run the application after cloning it from the Github-Repository :</p>
+                    <ul class="list-decimal ml-6">
+                        <li class="mt-4"> Generate Google credentials for Oauth and add them to application.properties.</li>
+                        <li class="mt-4">In a MySQL database (named ‘authmodule’), create a table named ‘user’ using the following command:
+                            <br>
+                            <span class="text-yellow-500 font-medium">CREATE TABLE ‘authmodule’.‘user’ (   ‘id’ INT NOT NULL, <br>  ‘user_name’ VARCHAR(45) NOT NULL,   ‘password’ VARCHAR(45) NOT NULL,<br>  ‘roles’ VARCHAR(15) NOT NULL,    PRIMARY KEY (‘id’));</span>
+                        </li>
+                        <br>
+                        <img src="dist/images/Image2.png" alt="database table" height="200px" width="300px" >
+                        <br>
+                        <li class="mt-4">After populating the table, adjust the database url, username and password in both application.properties and hibernate.cfg.xml.</li>
+                        <p>Your Application is ready to run!</p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- BEGIN: JS Assets-->
+        <script src="dist/js/app.js"></script>
+        <!-- END: JS Assets-->
+    </body>
+</html>

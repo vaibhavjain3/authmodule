@@ -23,13 +23,12 @@ public class CustomController {
 	public String home() {
 		return "index";
 	}
-
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/help")
-	public ModelAndView method() {
-	    return new ModelAndView("redirect:" + "https://ayushmalikofficial.github.io/documentation/");
+	public String help() {
+		return "help";
 	}
 
-	
 	@RequestMapping(method = RequestMethod.GET, value = "/user")
 	public String user() {
 		return "user";
@@ -49,7 +48,7 @@ public class CustomController {
 	public String error() {
 		return "error";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/admin")
 	public String admin(Model model) {
 		List<CustomUserDetails> user = userDetails.getAllUsers();
