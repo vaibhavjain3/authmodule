@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html lang="en">
+    <!-- BEGIN: Head -->
+    <head>
+        <meta charset="utf-8">
+        <link href="dist/images/logo.svg" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="AuthModule is a super flexible, powerful, clean & modern pluggable authentication module.">
+        <title>Getting Started - AuthModule - AU JULY 2020</title>
+        <!-- BEGIN: CSS Assets-->
+        <link rel="stylesheet" href="dist/css/app.css" />
+        <!-- END: CSS Assets-->
+    </head>
+    <!-- END: Head -->
+    <body>
+        <div class="container grid grid-cols-12 -my-3 min-h-screen relative z-10">
+            <div class="col-span-3 bg-gray-800 py-10">
+                <a href="" class="intro-x flex items-center pl-5 mb-8">
+                    <img class="w-6" src="dist/images/logo.svg">
+                    <span class="hidden xl:block text-2xl ml-3"> Auth<span class="font-medium">Module</span> Docs </span>
+                </a>
+				<a href="index.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out ">About</a> 
+                <a href="installation.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Getting Started</a>
+                <a href="file-structure.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">File Structure</a> 
+                <a href="attributions.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Attributions</a>
+                <a href="Authentication.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out font-medium bg-gray-900">Types of Authentication</a>
+                <a href="style-customization.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Resource Customisation</a> 
+                <a href="support.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Support</a>
+                <a href="changelog.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Changelog</a> 
+               
+                
+            </div>
+            <div class="col-span-9 border-l border-gray-800 bg-gray-900 py-10 px-10">
+                <h1 class="intro-y text-2xl font-medium pb-8 mb-10 border-b border-gray-800">
+                    Types of Authentication and Configuration
+                </h1>
+                <h2 class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800">
+                    In-Memory Authentication
+                </h2>
+                <div class="intro-y leading-relaxed">
+                    <p class="mb-3">The module supports in-memory authentication by entering the username, password and role details in the overriden configure method of <span class="text-yellow-500">SpringSecurityConfig.java</span> class. You can modify this class to add or remove users depending on your needs. In-memory authentication is implemented by hardcoding the acceptable values for usernames, their corresponding passwords and roles.</p>
+                    <pre class="prettyprint highlight prettyprinted" ><code class="java">
+protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+    //In-Memory Authentication
+    auth.inMemoryAuthentication() 
+    //Customize the following User-names, Passwords and Roles as per your needs
+        .withUser("User")
+        .password("pass")
+        .roles("USER") 
+        .and() 
+        .withUser("Admin") 
+        .password("pass")
+        .roles("ADMIN");	
+}		
+                    </code></pre>
+                </div>
+                <br><br><br>
+                <h2 class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800">
+                    OAuth 2.0 Authentication
+                </h2>
+                <div class="intro-y leading-relaxed">
+                    <p class="mb-3"></p>
+                    <div class="listingblock">
+                        <p class="mb-3">We can provide OAuth authentication for various social logins like Google, LinkedIn, GitHub, Facebook etc. For the purpose of understanding, we have implemented only Sign-In with Google. Others can be implemented in a similar way. For each OAuth login, we need to provide an anchor in <span class="text-yellow-500">login.html</span> file as shown below.
+                        </p><br>
+						<div class="content">
+						<pre class ="prettyprint highlight prettyprinted">
+<code class="language-xml" data-lang="xml">
+<span class="tag">&lt;a style="color:white;" th:href="@{/oauth2/authorization/google}"&gt;</span><span class="pln">Sign in with Google</span><span class="tag">&lt;/a&gt;</span>
+</code>
+						</pre>
+						</div><br><br>
+                        <p class="mb-3">For each OAuth sign-in you should first create OAuth credentials and add them to your <span class="text-yellow-500">application.properties</span> file . For example, for Google sign-in, you need to create a Client-id and Client-secret for OAuth 2.0 and enter them in <span class="text-yellow-500">application.properties</span> file shown below.</p>
+                        <div class="title">
+                        application.properties
+                        </div>
+                        <div class="content">
+                        <pre class="prettyprint highlight prettyprinted" ><code>
+#IMPORTANT:-You must add the properties of each OAuth 2.0 Client added to your application in this file
+
+#Please add your Google OAuth 2.0 Client ID and Client Secret below:
+#For details on how to generate Google OAuth Credentials, please refer the following link: https://developers.google.com/identity/protocols/oauth2
+spring.security.oauth2.client.registration.google.client-id=
+spring.security.oauth2.client.registration.google.client-secret=		
+                        </code>
+                        </pre>
+                        </div>
+                </div>
+                <br><br><br>
+                <h2 class="intro-y text-xl font-medium pb-5 mb-5 border-b border-gray-800">
+                    Database Authentication using Hibernate
+                </h2>
+                <div class="intro-y leading-relaxed">
+                    <p class="mb-3"> The prerequisites for database authentication are you need to have a database server and a table <span class="text-yellow-500" > user</span> with <span class="text-yellow-500" > id</span>,<span class="text-yellow-500" > role</span>,<span class="text-yellow-500" > username</span>, and<span class="text-yellow-500" > password</span> mandatory fields. You can use the following SQL Query to create the required table. </p>
+                    <pre class="prettyprint highlight prettyprinted">
+                        <code class="SQL">
+CREATE TABLE ‘authmodule’.‘user’ (
+    ‘id’ INT NOT NULL,
+    ‘user_name’ VARCHAR(45) NOT NULL,
+    ‘password’ VARCHAR(45) NOT NULL,
+    ‘roles’ VARCHAR(15) NOT NULL,
+    PRIMARY KEY (‘id’));
+                        </code>
+                    </pre>
+                    <p class="mb-3">A sample table created using the query is shown below.</p>
+                    <img src="dist/images/Image2.png" ><br><br>
+                    <p class="mb-3"> AuthModule is a pluggable module as it integrates Hibernate along with Spring Security to make it database independent. Since Hibernate is an Object-Relational Mapping (ORM) tool, it maps to any database using an object of <span class="text-yellow-500">CustomUserDetails.java</span> which can be configured as per your need.</p>
+                    <div class="title">
+                    CustomUserDetails.java
+                    </div>
+                    <div class="content">
+                    <pre class="prettyprint highlight prettyprinted">
+                        <code class="java">
+public class CustomUserDetails implements UserDetails {
+	
+    private static SessionFactory sessionFactory;
+    //Binding data members to database attributes
+    @Id
+    @Column(name="id")
+    private int id;
+    @Column(name="user_name")
+    private String user_name;
+    @Column(name="password")
+    private String password;
+    @Column(name="roles")
+    private String role;
+                        </code>
+                    </pre>
+                    </div>
+                    <p class="mb-3"> <span class="text-yellow-500">CustomUserDetailsService</span> class implements UserDetailsService interface to load the user’s authentication information from a database.</p>
+                    <p class="mb-3" >The server details and credentials for the database can be added in the <span class="text-yellow-500">application.properties</span> file and the configuration for Hibernate can be specified in <span class="text-yellow-500">hibernate.cfg.xml</span> file.</p>
+                    <div class="title">
+                    application.properties
+                    </div>
+                    <div class="content">
+                        <pre class="prettyprint highlight prettyprinted">
+                            <code>
+#Configure the following properties as per your Database Specifications
+spring.datasource.url=jdbc:mysql://localhost:3306/authmodule
+spring.datasource.username=root
+spring.datasource.password=
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="title">
+                    hibernate.cfg.xml
+                    </div>
+                    <div class="content">
+                        <pre class="prettyprint highlight prettyprinted" ><code class="language-xml" data-lang="xml">
+<span class="tag">&lt;property name="hibernate.dialect"&gt;</span>
+<span class="pln">  -- Your Database Dialect --
+    org.hibernate.dialect.MySQLDialect</span>
+<span class="tag">&lt;/property&gt;</span>
+<span class="tag">&lt;property name="hibernate.connection.driver_class"&gt;</span>
+<span class="pln">  -- Your Database Driver --
+    com.mysql.cj.jdbc.Driver</span>
+<span class="tag">&lt;/property&gt;</span>
+<span class="tag">&lt;property name="hibernate.connection.url"&gt;</span>
+<span class="pln">  -- Your Database Connection URL --
+    jdbc:mysql://localhost:3306/authmodule</span>
+<span class="tag">&lt;/property&gt;</span>
+<span class="tag">&lt;property name="hibernate.connection.username"&gt;</span>
+<span class="pln">  -- Your Database Username --
+    root</span>
+<span class="tag">&lt;/property&gt;</span>
+<span class="tag">&lt;property name="hibernate.connection.password"&gt;</span>
+<span class="pln">  -- Your Database Password --</span>
+<span class="tag">&lt;/property&gt;</span>
+                           </code>
+                           </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BEGIN: JS Assets-->
+        <script src="dist/js/app.js"></script>
+        <!-- END: JS Assets-->
+    </body>
+</html>

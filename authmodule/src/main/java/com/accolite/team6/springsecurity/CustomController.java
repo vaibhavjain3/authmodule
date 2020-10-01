@@ -3,11 +3,14 @@ package com.accolite.team6.springsecurity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 //This class defines how the requests will be handled by the application
 @Controller
@@ -22,10 +25,10 @@ public class CustomController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/help")
-	public String restricted() {
+	public String help() {
 		return "help";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/user")
 	public String user() {
 		return "user";
@@ -45,7 +48,7 @@ public class CustomController {
 	public String error() {
 		return "error";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/admin")
 	public String admin(Model model) {
 		List<CustomUserDetails> user = userDetails.getAllUsers();

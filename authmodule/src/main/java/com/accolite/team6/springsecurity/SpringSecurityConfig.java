@@ -53,10 +53,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/admin/**") 
 		.hasRole("ADMIN")
 		//'user' pages can only be accessed by both USER and ADMIN
-		.antMatchers("/user**")
+		.antMatchers("/user/**")
 		.hasAnyRole("ADMIN","USER")
 		//Help and documentation, style-sheets and login-errors are accessible to all even without authentication
-		.antMatchers("/help","/*.css","/login?error")
+		.antMatchers("/help/**","/*.css","/login?error")
 		.permitAll()
 		//Any other resource is only accessible after authentication
 		.antMatchers("/**")
