@@ -33,10 +33,14 @@ public class CustomUserDetails implements UserDetails {
 	@Id
 	@Column(name="id")
 	private int id;
+	
 	@Column(name="user_name")
 	private String user_name;
+	
 	@Column(name="password")
 	private String password;
+	
+	// Roles have to be in upper case only.
 	@Column(name="roles")
 	private String role;
 	
@@ -105,6 +109,7 @@ public class CustomUserDetails implements UserDetails {
 	}
 	
 	@Override
+	// Either roles have to appended with ROLE_ or we can prepend ROLE_ here.
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return Arrays.asList(new SimpleGrantedAuthority("ROLE_"+role));
 	}

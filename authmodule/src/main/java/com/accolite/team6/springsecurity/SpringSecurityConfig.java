@@ -3,13 +3,11 @@ package com.accolite.team6.springsecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -25,8 +23,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 		
 		//In-Memory Authentication
-		 auth.inMemoryAuthentication() 
-		//Customize the following User-names, Passwords and Roles as per your needs
+		//Customize the following in memory User-names, Passwords and Roles as per your needs
+		 auth.inMemoryAuthentication()
 		 	 .withUser("User")
 		 	 .password("pass")
 		 	 .roles("USER") 
@@ -35,7 +33,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		 	 .password("pass")
 		 	 .roles("ADMIN");				
 		
-		 //Database Authentication using Hibernate
+		//Database Authentication using Hibernate
 		auth.userDetailsService(UserService);
 	
 	}
@@ -52,7 +50,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		//It has been customized for 2-Role Authorization: Administrator (ADMIN) and a normal User (USER)
 		http.authorizeRequests()
 		//'admin' pages can only be accessed by ADMIN
-		.antMatchers("/admin**") 
+		.antMatchers("/admin/**") 
 		.hasRole("ADMIN")
 		//'user' pages can only be accessed by both USER and ADMIN
 		.antMatchers("/user**")
