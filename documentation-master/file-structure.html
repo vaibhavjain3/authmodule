@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- BEGIN: Head -->
+    <head>
+        <meta charset="utf-8">
+        <link href="dist/images/logo.svg" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="AuthModule is a super flexible, powerful, clean & modern pluggable authentication module.">
+        <title>Getting Started - AuthModule - AU JULY 2020</title>
+        <!-- BEGIN: CSS Assets-->
+        <link rel="stylesheet" href="dist/css/app.css" />
+        <!-- END: CSS Assets-->
+    </head>
+    <!-- END: Head -->
+    <body>
+<div class="container grid grid-cols-12 -my-3 min-h-screen relative z-10">
+            <div class="col-span-3 bg-gray-800 py-10">
+                <a href="" class="intro-x flex items-center pl-5 mb-8">
+                    <img  class="w-6" src="dist/images/logo.svg">
+                    <span class="hidden xl:block text-2xl ml-3"> Auth<span class="font-medium">Module</span> Docs </span>
+                </a>
+                <a href="index.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out ">About</a> 
+                <a href="installation.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Getting Started</a> 
+                <a href="file-structure.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out font-medium bg-gray-900">File Structure</a> 
+                 <a href="attributions.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Attributions</a>
+                <a href="style-customization.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Types of Authentication</a>
+                <a href="style-customization.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Resource customization</a>
+                <a href="support.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Support</a>
+                <a href="changelog.html" class="intro-x flex items-center px-5 py-3 rounded-l hover:bg-gray-900 transition duration-300 ease-in-out">Changelog</a> 
+            </div>
+            <div class="col-span-9 border-l border-gray-800 bg-gray-900 py-10 px-10">
+                <h1 class="intro-y text-2xl font-medium pb-8 mb-10 border-b border-gray-800">
+                    File Structure
+                </h1>
+                <div class="intro-y leading-relaxed">
+                    <p class="mb-3">After downloading the Module, you will get a file structure as shown below. Types of file in the module are :</p>
+                    <ul style="list-style-type:circle; margin-left: 20px;">
+                        <li>The src directory contains all of the source material for building the project, its site and so on. It contains a subdirectory for each type : main for the main build artifact, test for the unit test code and resources, site and so on.</li>
+                        <li>The resources folder is dedicated to all the static resources, templates and property files.
+                            <ul style="list-style-type:circle; margin-left: 20px;">
+                                <li>resources/static - It contains static resources such as CSS, js, and images.</li>
+                                <li>resources/templates - It contains server-side templates which are rendered by Spring.</li>
+                                <li>resources/application.properties - It contains application-wide properties.</li>
+                            </ul>
+                        </li>
+                        <li>The pom. xml file contains information about the project and configuration information such as dependencies, build directory, source directory, test source directory, plugin, goals etc.
+                        </li> 
+                        <li>The target directory is used to house all output of the build.</li>
+                    </ul>
+                    <br>
+                </div>
+                <p>The file tree below will describes more clearly about the file structure.</p>
+                <div class="intro-y flex items-start mt-10">
+                    <img src="dist/images/Resource.PNG" >
+                </div>
+                <div class="col-span-9 py-10 px-10">
+                <h1 class="intro-y text-2xl font-medium pb-8 mb-10 border-b border-gray-800">
+                    Important Files :
+                </h1>
+                <div class="intro-y p-8 rounded-md bg-gray-800 mt-16">The following files can be configured according to the user's requirements :
+                <table class="intro-y w-full">
+                        <tr>
+                            <td class="border border-gray-700 px-4 py-2 font-medium">File Name</td>
+                            <td class="border border-gray-700 px-4 py-2 font-medium">Information</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 px-4 py-2">application.properties</td>
+                            <td class="border border-gray-700 px-4 py-2">The file contains database configuration and credentials for Oauth authorisation. Application properties support us to work in different environments</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 px-4 py-2">hibernate.cfg.xml</td>
+                            <td class="border border-gray-700 px-4 py-2">Hibernate requires a set of configuration settings related to database and other related parameters. All such information is supplied as an XML file named hibernate.cfg.xml.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 px-4 py-2">CustomUserDetails.java</td>
+                            <td class="border border-gray-700 px-4 py-2">It is the Entity Class. The class data members and methods can be configured according to the fields in your database.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 px-4 py-2">SpringSecurityConfig.java</td>
+                            <td class="border border-gray-700 px-4 py-2">The configure() method of this class can be used to configure the access of html pages by the users with different roles. </td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 px-4 py-2">Template/admin.html</td>
+                            <td class="border border-gray-700 px-4 py-2">This page is restricted to the user with ADMIN role and can be designed accordingly.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 px-4 py-2">Template/user.html</td>
+                            <td class="border border-gray-700 px-4 py-2">This page can be accessed by any logged in user.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 px-4 py-2">Template/login.html</td>
+                            <td class="border border-gray-700 px-4 py-2">This is customizable login form for authentication.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 px-4 py-2">Template/logout.html</td>
+                            <td class="border border-gray-700 px-4 py-2">This is a customizable page to log out of the application.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 px-4 py-2">Template/index.html</td>
+                            <td class="border border-gray-700 px-4 py-2">This is the first page which opens after any user logs in. It can be customized as needed.</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- BEGIN: JS Assets-->
+        <script src="dist/js/app.js"></script>
+        <!-- END: JS Assets-->
+    </body>
+</html>
